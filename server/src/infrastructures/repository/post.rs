@@ -26,13 +26,6 @@ pub struct PostRepositoryImpl {
 
 impl PostRepository for PostRepositoryImpl {
     fn list(&self) -> Result<Vec<Post>, diesel::result::Error> {
-        // use super::super::database::schema::post::Post::dsl;
-
-        // let query = dsl::documents.into_boxed();
-        // let conn = self.pool.get()?;
-        // let results: Vec<DocumentEntity> = query.limit(100).load(&conn)?;
-
-        // Ok(results.into_iter().map(|e| e.of()).collect())
         posts.load::<Post>(&self.conn)
     }
 
